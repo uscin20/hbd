@@ -24,14 +24,11 @@
     <input type="text" id="password" placeholder="" autocomplete="off">
     <button onclick="checkPassword()">wejdź</button>
     </div>
-
 <script>
-    const correctPassword = ["Karmelek1", "Skoczek6", "Kreator8", "Filia10", "Banda23", "Rakieta13"];
-
+    const correctPasswords = ["Karmelek1", "Skoczek6", "Kreator8", "Filia10", "Banda23", "Rakieta13"];
     function checkPassword() {
         const userInput = document.getElementById("password").value;
-
-        if(userInput === correctPassword) {
+        if (correctPasswords.includes(userInput)) {
             window.location.href = "hbdvid";
         } else {
             alert("Spróbuj jeszcze raz.");
