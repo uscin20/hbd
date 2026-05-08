@@ -43,6 +43,23 @@
 
 <button style="padding:10px;" onclick="window.location.href='https://forms.gle/ekX9wWkt8AMnep1d9'">formularz</button>
 
+<div id="odliczanie"></div>
+<script>
+let dataDocelowa = new Date("2026-05-31T23:59:59").getTime();
+let x = setInterval(function() {
+  let teraz = new Date().getTime();
+  let odleglosc = dataDocelowa - teraz;
+  let dni = Math.floor(odleglosc / (1000 * 60 * 60 * 24));
+  let godziny = Math.floor((odleglosc % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minuty = Math.floor((odleglosc % (1000 * 60 * 60)) / (1000 * 60));
+  let sekundy = Math.floor((odleglosc % (1000 * 60)) / 1000);
+  document.getElementById("odliczanie").innerHTML = dni + "d " + godziny + "h " + minuty + "m " + sekundy + "s ";
+  if (odleglosc < 0) {
+    clearInterval(x);
+    document.getElementById("odliczanie").innerHTML = "Zakończone!";
+  }
+}, 1000);
+</script>
 </div>
 
 <div class="footer">
